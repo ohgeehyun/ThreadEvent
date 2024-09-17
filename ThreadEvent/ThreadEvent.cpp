@@ -35,7 +35,7 @@ void Consumer() {
 												//ResetEvent(handle)을 통해 바꿔주어야한다.								
 		unique_lock<mutex> lock(m);
 
-		if (q.empty() == false) {
+			while (q.empty() == false) {
 			int32 data = q.front();
 			q.pop();
 			cout << data << endl; //스레드로 실행중인 영역에서 cout등 커널을다시부르는 습관은 좋지 않다고 한다. 현재는 공부용이니 진행
